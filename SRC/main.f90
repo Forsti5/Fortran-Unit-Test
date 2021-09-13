@@ -10,6 +10,7 @@ program main
 	write(*, fmt="(1x,a,i0)", advance="no") "Initial angle: "
 	read *, angle
 	
+	! only for tests 
 	! v0 = 5e0
 	! angle = 0.7e0
 	
