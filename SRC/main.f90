@@ -15,6 +15,7 @@ program main
 	! angle = 0.7e0
 	
 	call ProjectileMotionWithoutDrag(v0, angle, sx)
+!	sx = ProjectileMotionWithoutDrag(v0, angle)
 	write(*,*)sx
 
 end program main

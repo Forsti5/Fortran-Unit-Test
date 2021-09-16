@@ -21,4 +21,17 @@ contains
 
    end subroutine
 
+
+!   elemental real function ProjectileMotionWithoutDrag(v0, angle)
+
+!      real, intent(in)  :: v0
+!      real, intent(in)  :: angle
+!      
+!      double precision t
+
+!      t = 2*v0*sin(angle)/9.81
+!      ProjectileMotionWithoutDrag = v0*cos(angle)*t
+
+!   end function ProjectileMotionWithoutDrag
+
 end module

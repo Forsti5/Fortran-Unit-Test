@@ -8,7 +8,7 @@ add_executable(main
   
 target_link_libraries(main sut)
 
-#set_target_properties (sut PROPERTIES
-#  Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+set_target_properties (sut PROPERTIES
+  Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
-#target_include_directories(sut PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(sut PUBLIC ${CMAKE_CURRENT_BINARY_DIR})

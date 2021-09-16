@@ -4,8 +4,9 @@ project (Fortran-Unit-Test
   VERSION 1.0.0
   LANGUAGES Fortran)
 
-#find_package(PFUNIT REQUIRED)
-#enable_testing()
+find_package(PFUNIT REQUIRED)
+enable_testing()
 
 add_subdirectory(SRC)
+add_subdirectory(TESTS)
 

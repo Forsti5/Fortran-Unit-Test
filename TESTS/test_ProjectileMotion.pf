@@ -1,0 +1,20 @@
+module my_tests
+   use ProjectileMotion
+   use funit
+   implicit none
+
+contains
+
+	@test
+	subroutine test_ProjectileMotion()
+
+	   real(8) :: v0 = 5.
+	   real(8) :: angle = 1.
+	   real(8) :: res
+	   
+	   call ProjectileMotionWithoutDrag( v0, angle, res)
+	   @assertEqual(2.3172716308130652, res, 'ProjectileMotionWithoutDrag(5,1)')
+	   
+	end subroutine test_ProjectileMotion
+	
+end module my_tests
