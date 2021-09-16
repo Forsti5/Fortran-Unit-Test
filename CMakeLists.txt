@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.12)
+
+project (Fortran-Unit-Test
+  VERSION 1.0.0
+  LANGUAGES Fortran)
+
+#find_package(PFUNIT REQUIRED)
+#enable_testing()
+
+add_subdirectory(SRC)
+
