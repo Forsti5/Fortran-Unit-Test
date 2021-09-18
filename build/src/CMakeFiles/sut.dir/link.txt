@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsut.a CMakeFiles/sut.dir/projectile_motion.f90.o
+/usr/bin/ranlib libsut.a

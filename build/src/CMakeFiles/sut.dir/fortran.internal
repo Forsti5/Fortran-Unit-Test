@@ -1,0 +1,3 @@
+# The fortran modules provided by this target.
+provides
+ projectile_motion_mod.mod
