@@ -1,5 +1,5 @@
 add_library(sut
-  ProjectileMotion.f90
+  projectile_motion.f90
   )
 
 add_executable(main

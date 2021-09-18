@@ -7,6 +7,6 @@ project (Fortran-Unit-Test
 find_package(PFUNIT REQUIRED)
 enable_testing()
 
-add_subdirectory(SRC)
-add_subdirectory(TESTS)
+add_subdirectory(src)
+add_subdirectory(tests)
 
