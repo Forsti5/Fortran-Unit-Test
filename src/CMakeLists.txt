@@ -1,9 +1,9 @@
 add_library(sut
-  projectile_motion.f90
+  projectile_motion.F90
   )
 
 add_executable(main
-  main.f90
+  main.F90
   )
   
 target_link_libraries(main sut)
