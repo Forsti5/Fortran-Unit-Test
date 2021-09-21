@@ -8,7 +8,7 @@ fi
 mkdir -p build
 cd build
 #cmake ..
-cmake .. -DCMAKE_PREFIX_PATH=$HOME/Bachelorarbeit/pFUnit/build/installed/PFUNIT-4.2
+cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
 make -j
 
  ctest --verbose
