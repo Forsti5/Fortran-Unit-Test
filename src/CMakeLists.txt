@@ -1,14 +1,29 @@
-add_library(sut
+add_library(projectile
   projectile_motion.F90
   )
+  
+  
+add_library(vector
+  vector_products.F90
+  )
+  
 
 add_executable(main
   main.F90
   )
   
-target_link_libraries(main sut)
+  
+target_link_libraries(main projectile)
 
-set_target_properties (sut PROPERTIES
+
+set_target_properties (projectile PROPERTIES
   Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(sut PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(projectile PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+
+
+set_target_properties (vector PROPERTIES
+  Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+
+target_include_directories(vector PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+
