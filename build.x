@@ -11,5 +11,5 @@ cd build
 cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
 make -j
 
- ctest --verbose
+ctest --verbose
 

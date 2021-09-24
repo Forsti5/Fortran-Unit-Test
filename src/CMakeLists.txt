@@ -7,6 +7,9 @@ add_library(vector
   vector_products.F90
   )
   
+add_library(lorentz
+  lorentz_force.F90
+  )
 
 add_executable(main
   main.F90
@@ -14,6 +17,7 @@ add_executable(main
   
   
 target_link_libraries(main projectile)
+target_link_libraries(lorentz vector)
 
 
 set_target_properties (projectile PROPERTIES
@@ -26,4 +30,10 @@ set_target_properties (vector PROPERTIES
   Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(vector PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+
+
+set_target_properties (lorentz PROPERTIES
+  Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+
+target_include_directories(lorentz PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 

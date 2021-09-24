@@ -8,3 +8,7 @@ add_pfunit_ctest (test_vector_products_mod
   LINK_LIBRARIES vector
   )
 
+add_pfunit_ctest (test_lorentz_force_mod
+  TEST_SOURCES test_lorentz_force.pf
+  LINK_LIBRARIES lorentz
+  )
