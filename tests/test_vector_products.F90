@@ -17,8 +17,10 @@ contains
       b = [3.,1.,2.]
 
       call crossproduct(a, b, res)
-      resL = (res-[-4.,4.,4.]) <= 0.1
+      
       @assertEqual([-4.,4.,4.], res, tolerance = 0.1, message = "test cross product")
+      
+      resL = abs(res-[-4.,4.,4.]) <= 0.1
       @assertAll(resL, message = "logical test cross product")
 
    end subroutine test_crossproduct

@@ -14,7 +14,7 @@ make -j
 
 ctest --verbose
 
-export PROF_DIR=~/Bachelorarbeit/Fortran-Unit-Test/build/tests
+export PROF_DIR=./tests
 profmerge *.dyn
 cd tests
 codecov -prj Fortran-Unit-Test -spi pgopti.spi -dpi pgopti.dpi
