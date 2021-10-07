@@ -12,6 +12,7 @@ contains
 
       real, dimension(3)  :: E,B,v,F
       real :: q
+      logical, dimension(3) :: resL
       
       q = -1
       E = [0.,2.,0.]
@@ -19,7 +20,9 @@ contains
       B = [0.,0.,1.]
 
       call lorentz_force(q,E,v,B,F)
-      @assertEqual([-1.,-1.,0.], F, tolerance = 0.1, message = "test lorentz force")
+      
+      resL = abs(F-[-1.,-1.,0.]) <= 1e-13
+      @assertAll(resL, message = "test lorentz force")
 
    end subroutine test_lorentz_force
 

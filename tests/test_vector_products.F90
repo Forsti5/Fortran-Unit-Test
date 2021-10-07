@@ -18,9 +18,7 @@ contains
 
       call crossproduct(a, b, res)
       
-      @assertEqual([-4.,4.,4.], res, tolerance = 0.1, message = "test cross product")
-      
-      resL = abs(res-[-4.,4.,4.]) <= 0.1
+      resL = abs(res-[-4.,4.,4.]) <= 1e-13
       @assertAll(resL, message = "logical test cross product")
 
    end subroutine test_crossproduct
@@ -35,7 +33,7 @@ contains
       b = [3.,1.,2.]
 
       call dotproduct(a, b, res)
-      @assertEqual(4, res, tolerance = 0.1, message = "test dot product")
+      @assertEqual(4, res, tolerance = 1e-13, message = "test dot product")
 
    end subroutine test_dotproduct
 
