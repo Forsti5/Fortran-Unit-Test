@@ -12,10 +12,12 @@ cd build
 cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
 make -j
 
+cd tests
+export PROF_DIR=./coverage
+mkdir -p coverage
 ctest --verbose
 
-export PROF_DIR=./tests
 profmerge *.dyn
-cd tests
-codecov -prj Fortran-Unit-Test -spi pgopti.spi -dpi pgopti.dpi
+cd coverage
+codecov -prj Fortran-Unit-Test -spi ../../src/pgopti.spi -dpi pgopti.dpi
 

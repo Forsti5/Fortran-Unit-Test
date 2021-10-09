@@ -8,6 +8,7 @@ contains
    @suite(name='test_vector_products_suite')
 
    @test
+   @disable
    subroutine test_crossproduct()
 
       real, dimension(3)  :: a,b,res
