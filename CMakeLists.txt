@@ -9,7 +9,9 @@ if("$ENV{PFUNIT_TEST}" STREQUAL "TRUE")
   enable_testing()
 endif()
 
-add_compile_options(-prof-gen=srcpos)
+if(CMAKE_Fortran_COMPILER_ID MATCHES Intel)
+  add_compile_options(-prof-gen=srcpos)
+endif()
 
 add_subdirectory(src)
 if("$ENV{PFUNIT_TEST}" STREQUAL "TRUE")
