@@ -4,11 +4,15 @@ project (Fortran-Unit-Test
   VERSION 1.0.0
   LANGUAGES Fortran)
 
-find_package(PFUNIT REQUIRED)
-enable_testing()
+if("$ENV{PFUNIT_TEST}" STREQUAL "TRUE")
+  find_package(PFUNIT REQUIRED)
+  enable_testing()
+endif()
 
 add_compile_options(-prof-gen=srcpos)
 
 add_subdirectory(src)
+if("$ENV{PFUNIT_TEST}" STREQUAL "TRUE")
 add_subdirectory(tests)
+endif()
 

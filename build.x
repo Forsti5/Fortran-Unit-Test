@@ -5,19 +5,29 @@ then
     rm -rf build
 fi
 
-export FC=ifort
-
 mkdir -p build
 cd build
-cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
+if [[ $PFUNIT_TEST = "TRUE" ]]
+then
+  cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
+else
+  cmake ..
+fi
 make -j
 
-cd tests
-export PROF_DIR=./coverage
-mkdir -p coverage
-ctest --verbose
+if [[ $PFUNIT_TEST = "TRUE" ]]
+then
+  cd tests
+  export PROF_DIR=./coverage
+  mkdir -p coverage
+  
+  ctest --verbose
 
-profmerge *.dyn
-cd coverage
-codecov -prj Fortran-Unit-Test -spi ../../src/pgopti.spi -dpi pgopti.dpi
+  if [[ $FC = "ifort" ]]
+  then
+    profmerge *.dyn
+    cd coverage
+    codecov -prj Fortran-Unit-Test -spi ../../src/pgopti.spi -dpi pgopti.dpi -ccolor '#d7fad2'
+  fi
+fi
 
