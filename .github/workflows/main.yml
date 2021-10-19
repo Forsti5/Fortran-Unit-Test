@@ -109,4 +109,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
-          path: build/tests/coverage/CODE_COVERAGE.HTML
+          path: build/tests/coverage/
