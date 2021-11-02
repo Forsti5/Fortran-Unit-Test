@@ -45,7 +45,7 @@ jobs:
           
       - name: Tests and coverage
         run: |
-          cd build/tests/
+          cd build/
           ctest --verbose
           cd src/CMakeFiles
           lcov --gcov-tool gcov-9 --capture --directory . --output-file covered.info
