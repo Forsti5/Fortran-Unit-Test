@@ -2,7 +2,6 @@ add_library(projectile
   projectile_motion.F90
   )
   
-  
 add_library(vector
   vector_products.F90
   )
@@ -15,9 +14,22 @@ add_executable(main
   main.F90
   )
   
-  
 target_link_libraries(main projectile)
 target_link_libraries(lorentz vector)
+
+if(CMAKE_Fortran_COMPILER_ID MATCHES GNU)
+	target_compile_options(projectile
+		PRIVATE --coverage
+		)
+
+	target_compile_options(vector
+		PRIVATE --coverage
+		)
+
+	target_compile_options(lorentz
+		PRIVATE --coverage
+		)
+endif()
 
 
 set_target_properties (projectile PROPERTIES
