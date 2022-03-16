@@ -8,7 +8,7 @@ contains
    @suite(name='test_projectile_motion_suite')
 
    @test
-   @disable
+   !@disable
    subroutine test_projectile_motion()
 
       real :: v0 = 5.

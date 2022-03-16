@@ -24,7 +24,7 @@ contains
    end subroutine test_crossproduct
    
    @test
-   @disable
+   !@disable
    subroutine test_dotproduct()
 
       real, dimension(3)  :: a,b
