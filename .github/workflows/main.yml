@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-20.04
     
     env:
-      FC: gfortran-9
-      PFUNIT_DIR: /home/runner/work/Fortran-Unit-Test-Basic/Fortran-Unit-Test-Basic/pFUnit/build/installed/PFUNIT-4.3
+      FC: gfortran
+      PFUNIT_DIR: /home/runner/work/Fortran-Unit-Test-Basic/Fortran-Unit-Test-Basic/pFUnit/build/installed/PFUNIT-4.4
     
     name: gfortran
     steps:
@@ -37,22 +37,9 @@ jobs:
           make tests
           make install
           
-      - name: Build
+      - name: Run script (build, tests, coverage)
         run: |
-          mkdir -p build
-          cd build
-          cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
-          make -j$(nproc)
-          
-      - name: Tests and coverage
-        run: |
-          cd build/
-          ctest --verbose
-          cd src/CMakeFiles
-          lcov --gcov-tool gcov-9 --capture --directory . --output-file covered.info
-          lcov --gcov-tool gcov-9 --capture -i --directory . --output-file uncovered.info
-          lcov -a covered.info -a uncovered.info --output-file result.info
-          genhtml --output-directory ../../coverage result.info
+          ./build_gfortran.sh
           
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
@@ -66,7 +53,7 @@ jobs:
     env:
       FC: ifort
       CC: icc
-      PFUNIT_DIR: /home/runner/work/Fortran-Unit-Test-Basic/Fortran-Unit-Test-Basic/pFUnit/build/installed/PFUNIT-4.3
+      PFUNIT_DIR: /home/runner/work/Fortran-Unit-Test-Basic/Fortran-Unit-Test-Basic/pFUnit/build/installed/PFUNIT-4.4
     
     name: Intel Fortran
     steps:
@@ -101,23 +88,9 @@ jobs:
           make tests
           make install
           
-      - name: Build
+      - name: Run script (build, tests, coverage)
         run: |
-          mkdir -p build
-          cd build
-          cmake .. -DCMAKE_PREFIX_PATH=$PFUNIT_DIR
-          make -j$(nproc)
-          
-      - name: Tests and coverage
-        run: |
-          cd build/tests/
-          export PROF_DIR=./coverage
-          mkdir -p coverage
-          ctest --verbose
-
-          profmerge *.dyn
-          cd coverage
-          codecov -prj Fortran-Unit-Test -spi ../../src/pgopti.spi -dpi pgopti.dpi -ccolor '#d7fad2'
+          ./build_ifort.sh
           
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
