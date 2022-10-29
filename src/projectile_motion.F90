@@ -14,7 +14,7 @@ contains
       real, intent(in)  :: angle
       real, intent(out) :: sx
       
-      double precision t
+      real :: t
 
       t = 2*v0*sin(angle)/9.81
       sx = v0*cos(angle)*t
